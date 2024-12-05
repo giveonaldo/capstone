@@ -15,6 +15,19 @@ Aplikasi ini Menggunakan framework [Laravel](https://laravel.com/).
   npm run build
 ```
 
+## Progress
+```bash
+   resources/
+   ├── views/
+   │   ├── petani/
+   │   │   ├── dashboard.blade.php
+   │   │   ├── porfolio.blade.php
+   │   │   ├── profile.blade.php
+   │   │   └── project.blade.php
+   │   │
+   └── └── home.blade.php
+```
+
 ## Authors
 
 - Abriansyah Adam 20210140017
