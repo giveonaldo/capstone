@@ -16,6 +16,7 @@ Aplikasi ini Menggunakan framework [Laravel](https://laravel.com/).
 ```
 
 ## Progress
+yang dikerjakan.
 ```bash
    resources/
    ├── views/
