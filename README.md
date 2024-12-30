@@ -16,7 +16,9 @@ Aplikasi ini Menggunakan framework [Laravel](https://laravel.com/).
 ```
 
 ## Progress
-HomePage
+```bash
+  Route "/" -> HomePage
+```
 ![HomePage](progress/HomePage.png)
 
 ## Authors
