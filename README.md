@@ -17,7 +17,7 @@ Aplikasi ini Menggunakan framework [Laravel](https://laravel.com/).
 
 ## Progress
 HomePage
-![HomePage]('/progress/HomePage.png')
+![HomePage]('/progress/HomePage.png');
 
 ## Authors
 
