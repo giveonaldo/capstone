@@ -16,18 +16,8 @@ Aplikasi ini Menggunakan framework [Laravel](https://laravel.com/).
 ```
 
 ## Progress
-yang dikerjakan.
-```bash
-   resources/
-   ├── views/
-   │   ├── petani/
-   │   │   ├── dashboard.blade.php
-   │   │   ├── porfolio.blade.php
-   │   │   ├── profile.blade.php
-   │   │   └── project.blade.php
-   │   │
-   └── └── home.blade.php
-```
+HomePage
+![HomePage]('/progress/HomePage.png')
 
 ## Authors
 
