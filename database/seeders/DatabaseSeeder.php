@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Investor;
 use App\Models\Petani;
+use App\Models\Role;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,9 +16,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $adminRole = Role::create(['name' => 'admin']);
+        $petaniRole = Role::create(['name' => 'petani']);
 
-        Petani::factory(50)->create();
-        Investor::factory(20)->create();
+        User::factory()->create([
+            'role_id' => $adminRole->id,
+            'email' => 'giveonaldo@gmail.com'
+        ]);
+
+        User::factory()->create([
+            'email' => 'nayla@gmail.com',
+            'role_id' => $petaniRole->id
+        ]);
     }
 }
