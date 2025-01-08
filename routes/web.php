@@ -1,30 +1,28 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\PetaniController;
-use App\Models\Petani;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RegisterUserController;
+use App\Http\Controllers\SessionController;
+use App\Models\Role;
 use Illuminate\Support\Facades\Route;
 
-// Home Route
 Route::view('/', 'home');
 
-// Admin Dashboard
-Route::get('/admin', [AdminController::class, 'index']);
+// Register and Login Users
+Route::middleware('guest')->group(function () {
+    Route::get('/register', [RegisterUserController::class, 'create'])->name('login');
+    Route::post('/register', [RegisterUserController::class, 'store']);
 
-// Petani Dahsboard
-Route::get('/petani', function () {
-    return view('petani.dashboard');
+    Route::get('/login', [SessionController::class, 'create']);
+    Route::post('/login', [SessionController::class, 'store']);
 });
 
-// Petani show Profile
-Route::get('/petani/profile/{id}', [PetaniController::class,'show']);
+Route::middleware('auth')->group(function () {
+    Route::middleware('can:petani')->group(function () {
+        Route::get('petani/dashboard', [DashboardController::class, 'indexPetani']);
+    });
 
-// Petani project
-Route::get('/petani/project', function () {
-    return view('petani.project');
-});
-
-// Petani portfolio
-Route::get('/petani/portfolio', function () {
-    return view('petani.portfolio');
+    Route::middleware('can:admin')->group(function() {
+        Route::get('/admin/dashboard', [DashboardController::class, 'indexAdmin']);
+    });
 });
