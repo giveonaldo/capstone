@@ -21,6 +21,7 @@ class User extends Authenticatable
         'firstName',
         'lastName',
         'role_id',
+        'product_id',
         'email',
         'password',
     ];
@@ -48,8 +49,19 @@ class User extends Authenticatable
         ];
     }
 
+    public function assignRole($roleName) {
+        $role = Role::where('name', $roleName)->first();
+        $this->role_id = $role->id;
+        $this->save();
+    }
+
     public function role()
     {
         return $this->belongsTo(Role::class);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
     }
 }
