@@ -16,6 +16,9 @@ Aplikasi ini Menggunakan framework [Laravel](https://laravel.com/).
 ```
 
 ## Progress
+- Login/Register untuk user dan petani
+- create,delete product untuk petani
+
 ```bash
   Route "/" -> HomePage
 ```

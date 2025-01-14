@@ -55,4 +55,34 @@ class ProductController extends Controller
 
         return redirect('/petani/products');
     }
+
+    public function showUpdate($id)
+    {
+        $petani = Auth::user();
+        $product = $petani->products()->find($id);
+        
+        return view('products.update', [
+            'petani' => $petani,
+            'product' => $product
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
+
+        if ($product->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $validated = $request->validate([
+            'product' => ['required'],
+            'quantity' => ['required'],
+            'price' => ['required']
+        ]);
+
+        $product->update($validated);
+
+        return redirect('/petani/products');
+    }
 }

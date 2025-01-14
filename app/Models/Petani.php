@@ -11,8 +11,16 @@ class Petani extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nama', 'email', 'nomor_telpon',
-        'alamat', 'deskripsi', 'foto', 'jenis_usaha',
-        'luas_lahan', 'akun_bank'
+        'nomor_telpon',
+        'alamat',
+        'deskripsi',
+        'jenis_usaha',
+        'luas_lahan',
+        'akun_bank'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

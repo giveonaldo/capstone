@@ -64,4 +64,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Product::class);
     }
+
+    public function mitra()
+    {
+        return $this->belongsToMany(Mitra::class, 'user_mitra');
+    }
+
+    public function petani()
+    {
+        return $this->hasOne(Petani::class);
+    }
 }

@@ -14,8 +14,10 @@ class DashboardController extends Controller
         return view('petani.dashboard', compact('petani'));
     }
 
-    public function indexAdmin()
+    public function indexMitra()
     {
-        return view('admin.dashboard');
+        $petani = Auth::user();
+
+        return view('user.mitra', compact('petani'));
     }
 }

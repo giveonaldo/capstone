@@ -5,7 +5,6 @@
     <x-slot:petani>
         {{ $petani->firstName }}
     </x-slot:petani>
-    <x-slot:id>{{ $petani->id }}</x-slot:id>
 
     <section>
         

@@ -5,6 +5,7 @@
     <x-slot:petani>
         {{ $petani->firstName }}
     </x-slot:petani>
+    <x-slot:id>{{ $petani->id }}</x-slot:id>
 
     <section class="px-6 flex flex-col mx-6 my-4 py-5 border-2 border-gray-600 rounded-xl">
         <div class="flex justify-between items-center">
@@ -33,8 +34,8 @@
                     <td class="px-6 py-4">{{ $product->quantity }}Kg</td>
                     <td class="px-6 py-4">Rp. {{ number_format($product->price, 2) }}/kg</td>
                     <td class="px-6 py-4">{{ $product->created_at->format('d-m-Y') }}</td>
-                    <td class="px-6 py-4 flex gap-2">
-                        <a href="/">Edit</a> / 
+                    <td class="px-6 py-4 flex gap-1">
+                        <a class="text-green-700 hover:underline" href="/petani/product/update/{{ $product->id }}">Edit</a> / 
                         <form action="/petani/product/{{ $product->id }}" method="POST">
                             @csrf
                             @method('DELETE')
