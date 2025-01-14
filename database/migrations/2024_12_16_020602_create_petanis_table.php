@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('alamat');
             $table->text('deskripsi');
             $table->string('jenis_usaha');
-            $table->decimal('luas_lahan');
+            $table->string('luas_lahan');
             $table->string('akun_bank');
             $table->timestamps();
         });
