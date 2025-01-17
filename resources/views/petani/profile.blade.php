@@ -17,8 +17,8 @@
         </div>
         <div class="mt-7">
             <h1 class="ml-2 mb-3 text-xl font-semibold text-green-900">Detail Information</h1>
-            <div class="border-2 border-green-400 rounded-xl px-5 py-4">
-
+            <form action="/petani/profile/{{ $petani->id }}" method="POST" class="border-2 border-green-400 rounded-xl px-5 py-4">
+                @csrf
                 {{-- Nomor Telpon dan Luas Lahan --}}
                 <div class="grid grid-cols-2 gap-3">
                     <div class="w-full">
@@ -68,7 +68,7 @@
                 </div>
 
                 <button type="submit" class="bg-white mt-6 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Submit</button>
-            </div>
+            </form>
         </div>
     </section>
 </x-petani.layout>

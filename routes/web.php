@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
 
         // Route for profile
         Route::get('/petani/profile/{id}', [PetaniController::class, 'profile']);
+        Route::post('/petani/profile/{id}', [PetaniController::class, 'storeProfile']);
     });
 
     Route::middleware('can:admin')->group(function() {
