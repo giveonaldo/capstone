@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mitra;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -11,7 +12,15 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard');
+        $user = User::with(['role', 'products', 'mitra', 'petani'])->paginate(10);
+        $product = Product::with('user')->paginate(10);
+        $mitra = Mitra::with('user')->paginate(10);
+        
+        return view('admin.dashboard',[
+            'users' => $user,
+            'products' => $product,
+            'mitras' => $mitra
+        ]);
     }
 
     public function indexMitra()
