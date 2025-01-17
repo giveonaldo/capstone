@@ -24,6 +24,12 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+
+    // User Profile
+    Route::get('/profile/{id}', [HomeController::class, 'show'])->name('user.profile');
+    Route::get('/profile/{id}/edit', [HomeController::class, 'edit']);
+    Route::put('/profile/{id}', [HomeController::class, 'update']);
+
     Route::delete('/logout', [SessionController::class, 'destroy']);
 
     Route::middleware('can:petani')->group(function () {

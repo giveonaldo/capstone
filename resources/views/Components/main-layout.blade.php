@@ -8,7 +8,11 @@
     <title>{{ $title }}</title>
 </head>
 <body class="relative">
-    <x-navbar/>
+    <x-navbar>
+        <x-slot:id>
+            {{ $user }}
+        </x-slot:id>
+    </x-navbar>
     {{ $slot }}
     <x-footer/>
 </body>

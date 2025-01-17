@@ -15,10 +15,10 @@
             @else
                 @foreach ($mitras as $mitra)
                     <div class="border-2 border-gray-300 px-4 pb-4 pt-3 rounded-xl">
-                        <img class="w-28 mb-2 h-28 object-cover" src="{{ Vite::asset('resources/images/bumn.png') }}"
-                            alt="pt">
+                        {{-- <img class="w-28 mb-2 h-28 object-cover" src="{{ Vite::asset('resources/images/bumn.png') }}"
+                            alt="pt"> --}}
                         <div class="text-xs">
-                            <p><b>Bisnis / Perusahaan :</b> {{ $mitra->name }}</p>
+                            <p class="text-lg mb-2">{{ $mitra->name }}</p>
                             <p><b>Deskripsi Perusahaan :</b> {{  Str::limit($mitra->deskripsi, 150, '...') }}</p>
                             <p><b>Status kemitraan :</b> {{  $mitra->status }}</p>
                         </div>

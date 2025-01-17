@@ -2,6 +2,9 @@
     <x-slot:title>
         HomePage
     </x-slot:title>
+    <x-slot:user>
+        {{ $user->id }}
+    </x-slot:user>
 
     {{-- Hero --}}
     <section class="relative w-full min-h-[70vh] overflow-hidden">

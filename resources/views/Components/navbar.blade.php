@@ -22,7 +22,7 @@
             @endcan
             @cannot('petani')
                 @cannot('admin')
-                    <a class="hover:underline" href="/profile">Profile</a>
+                    <a class="hover:underline" href="/profile/{{ $id }}">Profile</a>
                 @endcannot
             @endcannot
         @endauth
