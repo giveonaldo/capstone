@@ -16,6 +16,10 @@
         </div>
         <div class="text-xl flex justify-between w-full">
             <a class="hover:underline" href="/">Back</a>
+            <form action="/logout" method="POST" class="inline">
+                @csrf
+                <button type="submit" class="hover:underline text-red-500">Logout</button>
+            </form>
             <a class="hover:underline" href="/profile/{{ $user->id }}/edit">Edit Profile?</a>
         </div>
     </section>

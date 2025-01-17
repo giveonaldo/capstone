@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/{id}', [HomeController::class, 'show'])->name('user.profile');
     Route::get('/profile/{id}/edit', [HomeController::class, 'edit']);
     Route::put('/profile/{id}', [HomeController::class, 'update']);
+    Route::post('/logout', [HomeController::class, 'logout']);
 
     Route::delete('/logout', [SessionController::class, 'destroy']);
 

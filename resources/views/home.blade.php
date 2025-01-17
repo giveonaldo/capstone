@@ -3,7 +3,7 @@
         HomePage
     </x-slot:title>
     <x-slot:user>
-        {{ $user->id }}
+        {{ $user->id ?? '' }}
     </x-slot:user>
 
     {{-- Hero --}}
