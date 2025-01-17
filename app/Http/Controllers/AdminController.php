@@ -91,15 +91,19 @@ class AdminController extends Controller
 
     public function storeMitra(Request $request)
     {
-
         $attributes = $request->validate([
             'name' => ['required'],
             'deskripsi' => ['string'],
             'valuasi' => ['required'],
-            'status' => ['required']
+            'status' => ['required'],
+            'image' => ['image']
         ]);
 
-        $mitra = Mitra::create($attributes);
+        if ($request->hasFile('image')) {
+            $attributes['image'] = $request->file('image')->store('mitra_images');
+        }
+
+        Mitra::create($attributes);
 
         return redirect('/admin/investor');
     }

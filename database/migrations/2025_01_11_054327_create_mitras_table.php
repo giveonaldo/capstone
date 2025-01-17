@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('deskripsi')->nullable(true);
             $table->string('valuasi')->nullable(true);
             $table->string('status')->nullable(true);
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

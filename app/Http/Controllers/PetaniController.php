@@ -28,7 +28,7 @@ class PetaniController extends Controller
             'nomor_telpon' => ['required'],
             'luas_lahan' => ['required'],
             'jenis_usaha' => ['required'],
-            'akun_bank' => ['required'],
+            'label' => ['required'],
             'deskripsi' => ['required'],
             'alamat' => ['required']
         ]);
@@ -45,7 +45,7 @@ class PetaniController extends Controller
                 'nomor_telpon' => $attributes['nomor_telpon'],
                 'luas_lahan' => $attributes['luas_lahan'],
                 'jenis_usaha' => $attributes['jenis_usaha'],
-                'akun_bank' => $attributes['akun_bank'],
+                'label' => $attributes['label'],
                 'deskripsi' => $attributes['deskripsi'],
                 'alamat' => $attributes['alamat']
             ]);
@@ -55,7 +55,7 @@ class PetaniController extends Controller
                 'nomor_telpon' => $attributes['nomor_telpon'],
                 'luas_lahan' => $attributes['luas_lahan'],
                 'jenis_usaha' => $attributes['jenis_usaha'],
-                'akun_bank' => $attributes['akun_bank'],
+                'label' => $attributes['label'],
                 'deskripsi' => $attributes['deskripsi'],
                 'alamat' => $attributes['alamat']
             ]);

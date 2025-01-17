@@ -10,7 +10,9 @@ class Mitra extends Model
         'name',
         'deskripsi',
         'valuasi',
-        'status'
+        'status',
+        'mitra',
+        'image'
     ];
 
     public function user()

@@ -16,6 +16,7 @@
                 <p><span class="font-medium">Jenis Usaha : </span>{{ $petani->petani->jenis_usaha ?? '-' }}</p>
                 <p><span class="font-medium">No Telpon : </span>{{ $petani->petani->nomor_telpon ?? '-' }}</p>
                 <p><span class="font-medium">Luas Lahan : </span>{{ $petani->petani->luas_lahan ?? '-' }}</p>
+                <p><span class="font-medium">Nama Usaha : </span>{{ $petani->petani->label ?? '-' }}</p>
             </div>
         </div>
         <div class="border-2 mt-8 border-green-400 rounded-xl w-[50%] px-7 py-6">

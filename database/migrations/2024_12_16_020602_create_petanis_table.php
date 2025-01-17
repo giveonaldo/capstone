@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->string('jenis_usaha');
             $table->string('luas_lahan');
-            $table->string('akun_bank');
+            $table->string('label');
             $table->timestamps();
         });
     }

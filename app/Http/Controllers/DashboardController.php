@@ -17,7 +17,11 @@ class DashboardController extends Controller
     public function indexMitra()
     {
         $petani = Auth::user();
-
-        return view('user.mitra', compact('petani'));
+        $mitra = $petani->mitra;
+        
+        return view('user.mitra', [
+            'petani' => $petani,
+            'mitras' => $mitra
+        ]);
     }
 }

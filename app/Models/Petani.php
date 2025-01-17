@@ -17,7 +17,7 @@ class Petani extends Model
         'deskripsi',
         'jenis_usaha',
         'luas_lahan',
-        'akun_bank'
+        'label'
     ];
 
     public function user()
