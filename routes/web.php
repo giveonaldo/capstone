@@ -11,6 +11,7 @@ use App\Models\Role;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/petani', [HomeController::class, 'indexPetani']);
 
 // Register and Login Users
 Route::middleware('guest')->group(function () {

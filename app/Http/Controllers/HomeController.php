@@ -26,6 +26,18 @@ class HomeController extends Controller
         ]);
     }
 
+    public function indexPetani()
+    {
+        $petani = User::with(['role', 'products', 'mitra'])
+        ->whereHas('role', function ($query) {
+            $query->where('name', 'petani'); // Only users with role 'petani'
+        })
+        ->whereHas('petani') // Ensure the 'petani' relationship has data
+        ->get();
+
+        return view('petani', compact('petani'));
+    }
+
     public function show($id)
     {
         $user = Auth::user();
