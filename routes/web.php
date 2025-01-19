@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/petani', [HomeController::class, 'indexPetani']);
+Route::get('/products', [HomeController::class, 'indexProducts']);
 
 // Register and Login Users
 Route::middleware('guest')->group(function () {

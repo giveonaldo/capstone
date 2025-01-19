@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mitra;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,6 +37,12 @@ class HomeController extends Controller
         ->get();
 
         return view('petani', compact('petani'));
+    }
+
+    public function indexProducts()
+    {
+        $products = Product::with('user')->paginate(20);
+        return view('products', compact('products'));
     }
 
     public function show($id)
