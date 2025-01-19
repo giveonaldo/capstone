@@ -29,7 +29,7 @@
             <tbody>
                 @foreach ($products as $product)
                 <tr class="bg-white border-b">
-                    <td class="px-6 py-4">{{ $product->id }}</td>
+                    <td class="px-6 py-4">{{ $loop->iteration }}</td>
                     <td class="px-6 py-4">{{ $product->product }}</td>
                     <td class="px-6 py-4">{{ $product->quantity }}Kg</td>
                     <td class="px-6 py-4">Rp. {{ number_format($product->price, 2) }}/kg</td>

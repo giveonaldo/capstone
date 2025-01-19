@@ -13,7 +13,7 @@
             <tbody>
                 @foreach ($petanis as $petani)
                     <tr class="bg-white border-b">
-                        <td class="px-6 py-4">{{ $petani->id }}</td>
+                        <td class="px-6 py-4">{{ $loop->iteration }}</td>
                         <td class="px-6 py-4">{{ $petani->firstName }}</td>
                         <td class="px-6 py-4">{{ $petani->mitra->count() }}</td>
                         <td class="px-6 py-4"><a class="hover:underline" href="/admin/kemitraan/{{ $petani->id }}">View</a></td>

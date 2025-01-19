@@ -19,7 +19,7 @@
             <tbody>
                 @foreach ($users as $user)
                     <tr class="bg-white border-b">
-                        <td class="px-6 py-4">{{ $user->id }}</td>
+                        <td class="px-6 py-4">{{ $loop->iteration }}</td>
                         <td class="px-6 py-4">{{ $user->firstName }} {{ $user->lastName }}</td>
                         <td class="px-6 py-4">{{ $user->email }}</td>
                         <td class="px-6 py-4">{{ $user->role->name ?? 'user' }}</td>
@@ -52,7 +52,7 @@
             <tbody>
                 @foreach ($products as $product)
                     <tr class="bg-white border-b">
-                        <td class="px-6 py-4">{{ $product->id }}</td>
+                        <td class="px-6 py-4">{{ $loop->iteration }}</td>
                         <td class="px-6 py-4">{{ $product->product }}</td>
                         <td class="px-6 py-4">{{ $product->user->petani->label }}</td>
                         <td class="px-6 py-4">{{ Str::limit($product->user->petani->alamat, 50, '...') }}</td>
@@ -78,7 +78,7 @@
             <tbody>
                 @foreach ($mitras as $mitra)
                     <tr class="bg-white border-b">
-                        <td class="px-6 py-4">{{ $mitra->id }}</td>
+                        <td class="px-6 py-4">{{ $loop->iteration }}</td>
                         <td class="px-6 py-4">{{ $mitra->name }}</td>
                         <td class="px-6 py-4">{{ $mitra->user->count() }}</td>
                         <td class="px-6 py-4">{{ $mitra->status }}</td>

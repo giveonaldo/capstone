@@ -33,7 +33,7 @@ class AdminController extends Controller
     {
         $investor = Mitra::with('user')->paginate(10);
         return view('admin.investor', [
-            'investors' => $investor
+            'investors' => $investor 
         ]);
     }
 
@@ -42,7 +42,7 @@ class AdminController extends Controller
         $petani = User::with(['role', 'products', 'mitra'])
             ->whereHas('role', function($query) {
                 $query->where('name', 'petani');
-            })->paginate(10);
+            })->whereHas('petani')->paginate(10);
 
         return view('admin.petani-all', [
             'petanis' => $petani
@@ -50,6 +50,19 @@ class AdminController extends Controller
     }
 
     public function showPetani($id)
+    {
+        $petani = User::with(['role', 'products', 'mitra', 'petani'])
+                        ->whereHas('role', function ($query) {
+                            $query->where('name', 'petani');
+                        })
+                        ->whereHas('petani')
+                        ->where('id', $id)
+                        ->firstOrFail();
+
+        return view('admin.petani-show', compact('petani'));
+    }
+
+    public function showPetaniMitra($id)
     {
         $petani = User::with(['role', 'products', 'mitra'])
             ->where('id', $id)
@@ -135,5 +148,25 @@ class AdminController extends Controller
         $petani->mitra()->detach($mitraId);
 
         return redirect()->route('admin.petani.show', $petani->id);
+    }
+
+    public function deletePetani($id)
+    {
+        $petani = User::with(['products', 'mitra', 'petani', 'role'])->findOrFail($id);
+
+        if ($petani->role->name !== 'petani') {
+            return redirect('/admin/petani')->with('error', 'User is not a petani.');
+        }
+
+        $petani->products()->delete();
+        $petani->mitra()->detach();
+
+        if ($petani->petani()) {
+            $petani->petani()->delete();
+        }
+
+        $petani->delete();
+
+        return redirect('/admin/petani');
     }
 }

@@ -8,7 +8,7 @@
 
     <section class="min-h-screen flex flex-col w-full items-center">
         <h1 class="mt-10 text-4xl font-bold">Petani</h1>
-
+{{--  --}}
         @if ($petani->isEmpty())
             <p class="mt-6 text-lg text-gray-500">No petani available.</p>
         @else

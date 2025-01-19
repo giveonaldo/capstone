@@ -59,10 +59,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/kemitraan', [AdminController::class, 'indexMitra']);
         Route::get('/admin/investor', [AdminController::class, 'indexInvestor']);
         Route::get('/admin/petani', [AdminController::class, 'indexPetani']);
+        Route::get('/admin/petani/{id}', [AdminController::class, 'showPetani']);
+        Route::delete('/admin/petani/destroy/{id}', [AdminController::class, 'deletePetani']);
         Route::get('/admin/kemitraan/create', [AdminController::class, 'createMitra']);
         Route::get('/admin/kemitraan/add/{petaniId}', [AdminController::class, 'addMitra']);
         Route::post('/admin/kemitraan/add/{petaniId}', [AdminController::class, 'storeInvestor']);
-        Route::get('/admin/kemitraan/{id}', [AdminController::class, 'showPetani'])->name('admin.petani.show');
+        Route::get('/admin/kemitraan/{id}', [AdminController::class, 'showPetaniMitra'])->name('admin.petani.show');
         Route::post('/admin/kemitraan/create', [AdminController::class, 'storeMitra']);
         Route::delete('/admin/petani/mitra/{mitraId}', [AdminController::class, 'deleteMitra']);
         Route::delete('/admin/kemitraan/remove/{petaniId}/{mitraId}', [AdminController::class, 'removeMitra']);

@@ -19,8 +19,8 @@
                         <td class="px-6 py-4">{{ $petani->products->count() }}</td>
                         <td class="px-6 py-4">{{ $petani->petani->jenis_usaha ?? '-' }}</td>
                         <td class="px-6 py-4 flex gap-2">
-                            <a href="">View</a>/
-                            <form action="" method="POST">
+                            <a class="hover:underline hover:text-green-700" href="/admin/petani/{{ $petani->id }}">View</a>/
+                            <form action="/admin/petani/destroy/{{ $petani->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class="hover:underline hover:text-red-600" type="submit">Remove</button>
