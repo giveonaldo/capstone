@@ -32,5 +32,7 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('admin', function(User $user) {
              return $user->role && $user->role->name === 'admin';
         });
+
+        Model::preventLazyLoading(false);
     }
 }

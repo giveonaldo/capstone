@@ -3,9 +3,9 @@
         <img src="{{ asset('images/logo.png') }}" alt="Logo">
     </div>
     <div class="flex justify-center gap-8 font-sans text-xl font-bold text-white">
-        <a class="hover:text-[#E7FBB4]" href="/">Home</a>
-        <a class="hover:text-[#E7FBB4]" href="/petani">Petani</a>
-        <a class="hover:text-[#E7FBB4]" href="/product">Products</a>
+        <a class="{{ request()->is('/') ? 'text-[#E7FBB4]' : '' }} hover:text-[#E7FBB4]" href="/">Home</a>
+        <a class="{{ request()->is('petani') ? 'text-[#E7FBB4]' : '' }} hover:text-[#E7FBB4]" href="/petani">Petani</a>
+        <a class="{{ request()->is('products') ? 'text-[#E7FBB4]' : '' }} hover:text-[#E7FBB4]" href="/products">Products</a>
     </div>
     <div class="flex justify-center gap-2 font-sans text-xl font-bold text-white">
         @guest
@@ -22,7 +22,7 @@
             @endcan
             @cannot('petani')
                 @cannot('admin')
-                    <a class="hover:underline" href="/profile">Profile</a>
+                    <a class="hover:underline" href="/profile/{{ $id }}">Profile</a>
                 @endcannot
             @endcannot
         @endauth

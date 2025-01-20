@@ -5,19 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Petani extends Model
+class Product extends Model
 {
-    /** @use HasFactory<\Database\Factories\PetaniFactory> */
+    /** @use HasFactory<\Database\Factories\ProductFactory> */
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
-        'nomor_telpon',
-        'alamat',
-        'deskripsi',
-        'jenis_usaha',
-        'luas_lahan',
-        'label'
+        'product',
+        'quantity',
+        'price',
+        'user_id'
     ];
 
     public function user()

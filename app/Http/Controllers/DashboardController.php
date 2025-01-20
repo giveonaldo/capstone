@@ -2,17 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
     public function indexPetani()
     {
-        return view('petani.dashboard');
+        $petani = Auth::user();
+        return view('petani.dashboard', compact('petani'));
     }
 
-    public function indexAdmin()
+    public function indexMitra()
     {
-        return view('admin.dashboard');
+        $petani = Auth::user();
+        $mitra = $petani->mitra;
+        
+        return view('user.mitra', [
+            'petani' => $petani,
+            'mitras' => $mitra
+        ]);
     }
 }
