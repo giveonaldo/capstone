@@ -58,6 +58,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/dashboard', [AdminController::class, 'index']);
         Route::get('/admin/kemitraan', [AdminController::class, 'indexMitra']);
         Route::get('/admin/investor', [AdminController::class, 'indexInvestor']);
+        Route::get('/admin/investor/{id}', [AdminController::class, 'showMitra']);
         Route::get('/admin/petani', [AdminController::class, 'indexPetani']);
         Route::get('/admin/petani/{id}', [AdminController::class, 'showPetani']);
         Route::delete('/admin/petani/destroy/{id}', [AdminController::class, 'deletePetani']);

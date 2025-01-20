@@ -49,6 +49,15 @@ class AdminController extends Controller
         ]);
     }
 
+    public function showMitra($id)
+    {
+        $mitra = Mitra::with('user')
+                ->where('id', $id)
+                ->firstOrFail();
+
+        return view('admin.mitra-show', compact('mitra'));
+    }
+
     public function showPetani($id)
     {
         $petani = User::with(['role', 'products', 'mitra', 'petani'])

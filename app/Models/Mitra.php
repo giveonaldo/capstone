@@ -11,7 +11,6 @@ class Mitra extends Model
         'deskripsi',
         'valuasi',
         'status',
-        'mitra',
         'image'
     ];
 

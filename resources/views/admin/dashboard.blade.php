@@ -83,7 +83,7 @@
                         <td class="px-6 py-4">{{ $mitra->user->count() }}</td>
                         <td class="px-6 py-4">{{ $mitra->status }}</td>
                         <td>
-                            <a class="hover:underline" href="">View</a>
+                            <a class="hover:underline" href="/admin/investor/{{ $mitra->id }}">View</a>
                         </td>
                     </tr>
                 @endforeach
