@@ -25,7 +25,7 @@
                         <td class="px-6 py-4">{{ $user->role->name ?? 'user' }}</td>
                         <td class="px-6 py-4 flex gap-2">
                             <a href="" class="hover:underline">View</a>/
-                            <form action="" method="POST">
+                            <form action="/admin/user/{{ $user->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class="text-red-500 hover:underline" type="submit">Remove</button>

@@ -178,4 +178,23 @@ class AdminController extends Controller
 
         return redirect('/admin/petani');
     }
+
+    public function deleteUser($id)
+    {
+        $user = User::with('role')->findOrFail($id);
+
+        if ($user->role->name === null) {
+            $user->delete();
+        }
+
+        if ($user->role->name === 'admin') {
+            return redirect('/admin/dashboard');
+        }
+
+        if ($user->role->name === 'petani') {
+            return $this->deletePetani($id);
+        }
+
+        return redirect('/admin/dashboard');
+    }
 }
