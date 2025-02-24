@@ -1,30 +1,46 @@
-<nav class="sticky z-50 shadow-xl top-0 w-full h-24 bg-[#45474B] grid grid-cols-3 items-center ">
-    <div class="flex justify-center">
-        <img src="{{ asset('images/logo.png') }}" alt="Logo">
-    </div>
-    <div class="flex justify-center gap-8 font-sans text-xl font-bold text-white">
-        <a class="{{ request()->is('/') ? 'text-[#E7FBB4]' : '' }} hover:text-[#E7FBB4]" href="/">Home</a>
-        <a class="{{ request()->is('petani') ? 'text-[#E7FBB4]' : '' }} hover:text-[#E7FBB4]" href="/petani">Petani</a>
-        <a class="{{ request()->is('products') ? 'text-[#E7FBB4]' : '' }} hover:text-[#E7FBB4]" href="/products">Products</a>
-    </div>
-    <div class="flex justify-center gap-2 font-sans text-xl font-bold text-white">
-        @guest
-            <a class="hover:underline" href="/login">Login</a>
-            /
-            <a class="hover:underline" href="/register">Register</a>
-        @endguest
-        @auth
-            @can('petani')
-                <a class="hover:underline" href="/petani/dashboard">Dashboard</a>
-            @endcan
-            @can('admin')
-                <a class="hover:underline" href="/admin/dashboard">Dashboard</a>
-            @endcan
-            @cannot('petani')
-                @cannot('admin')
-                    <a class="hover:underline" href="/profile/{{ $id }}">Profile</a>
+<header class="sticky inset-0 z-50 border-b border-slate-100 bg-white/80 backdrop-blur-lg">
+    <nav class="mx-auto flex max-w-6xl gap-8 px-6 transition-all duration-200 ease-in-out lg:px-12 py-4">
+        
+        <div class="relative flex items-center">
+            <a href="/">
+                <img width="32" height="32" src="{{ asset('images/logo.png') }}" alt="Logo">
+            </a>
+        </div>
+        
+        
+        <ul class="hidden items-center justify-center gap-6 md:flex">
+            <li class="pt-1.5 font-dm text-sm font-medium text-slate-700">
+                <a href="/">Home</a>
+            </li>
+            <li class="pt-1.5 font-dm text-sm font-medium text-slate-700">
+                <a href="/petani">Petani</a>
+            </li>
+            <li class="pt-1.5 font-dm text-sm font-medium text-slate-700">
+                <a href="/products">Products</a>
+            </li>
+        </ul>
+        <div class="flex-grow"></div>
+        <div class="hidden items-center justify-center gap-6 md:flex">
+            @guest
+                <a class="font-dm text-sm font-medium text-slate-700" href="/login">Sign in</a>
+                <a href="/register"
+                class="rounded-md bg-gradient-to-br from-green-600 to-emerald-400 px-3 py-1.5 font-dm text-sm font-medium text-white shadow-md shadow-green-400/50 transition-transform duration-200 ease-in-out hover:scale-[1.03]">Sign
+                up for free
+            </a>
+            @endguest
+            @auth
+                @can('petani')
+                    <a class="font-dm text-sm font-medium text-slate-700" href="/petani/dashboard">Dashboard</a>
+                @endcan
+                @can('admin')
+                    <a class="font-dm text-sm font-medium text-slate-700" href="/admin/dashboard">Dashboard</a>
+                @endcan
+                @cannot('petani')
+                    @cannot('admin')
+                        <a class="font-dm text-sm font-medium text-slate-700" href="/profile/{{ $id }}">Profile</a>
+                    @endcannot
                 @endcannot
-            @endcannot
-        @endauth
-    </div>
-</nav>
+            @endauth
+        </div>
+    </nav>
+</header>
